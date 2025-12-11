@@ -33,7 +33,7 @@ Spacing:
 
 Section Padding: py-24 or py-32 (Airy layout).
 
-Container: max-w-[1280px], centered mx-auto, px-6.
+Container: max-w-[1024px], centered mx-auto, px-6.
 
 Figma MCP Workflow
 
