@@ -1,35 +1,28 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
+import { Metadata } from "next";
 import { Header } from "@/components/layout/Header";
+import { caseStudies } from "@/lib/data";
 
-// Case study data - you can move this to a separate file or CMS
-const caseStudies: Record<
-  string,
-  {
-    title: string;
-    category: string;
-    description: string;
-    imageUrl: string;
-    content?: string;
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ studyName: string }>;
+}): Promise<Metadata> {
+  const { studyName } = await params;
+  const caseStudy = caseStudies[studyName];
+
+  if (!caseStudy) {
+    return {
+      title: "Case Study Not Found",
+    };
   }
-> = {
-  "fitcy-health": {
-    title: "Fitcy Health",
-    category: "Healthcare",
-    description:
-      "Designed the UI and UX for Fitcy Health, delivering the complete mobile app, web platform, and responsive website.",
-    imageUrl:
-      "https://placehold.co/1600x900/f5f5f7/0f172a?text=Fitcy+Health+Case+Study",
-  },
-  savelifeai: {
-    title: "SaveLifeAI",
-    category: "Healthcare",
-    description:
-      "An AI-powered emergency response system that connects patients with critical care resources in real-time.",
-    imageUrl:
-      "https://placehold.co/1600x900/1e293b/ffffff?text=SaveLifeAI+Case+Study",
-  },
-};
+
+  return {
+    title: `${caseStudy.title} — Ahmed Daud`,
+    description: caseStudy.description,
+  };
+}
 
 export default async function CaseStudyDetailPage({
   params,
@@ -113,128 +106,31 @@ export default async function CaseStudyDetailPage({
 
   return (
     <main className="min-h-screen bg-white">
-      <Header />
-
       {/* First Fold - Hero Section with Mockups */}
       <section
-        className="relative flex flex-col items-center overflow-hidden bg-white"
+        className="relative flex flex-col items-center bg-white overflow-visible"
         style={{
-          padding: "190px 0px",
+          padding: "0px",
         }}
       >
-        {/* Background Image with Overlay */}
-        <div
-          className="absolute inset-0 z-0"
-          style={{
-            backgroundImage:
-              "url('https://placehold.co/1920x825/f5f5f7/0f172a?text=Background')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        >
-          <div
-            className="absolute inset-0"
-            style={{
-              boxShadow:
-                "inset 0px 0px 437.72px 0px rgba(255, 255, 255, 1), inset 0px -56px 40px 0px rgba(255, 255, 255, 1), inset 0px 20px 52px 0px rgba(255, 255, 255, 1)",
-            }}
-          />
-        </div>
+        <Header className="absolute top-0 left-0 right-0 z-50 w-full !bg-transparent pointer-events-auto" />
 
-        {/* Mockups Container */}
-        <div className="relative z-10 mx-auto flex w-full max-w-[1024px] items-end justify-center gap-[27.3px] px-6">
-          {/* Mobile App Mockup - Left */}
+        {/* Header Image */}
+        <div className="relative z-0 w-full">
           <div
-            className="relative flex-shrink-0 overflow-hidden rounded-[22.99px] border-[2.3px] border-white bg-white"
+            className="relative w-full"
             style={{
-              width: "265.11px",
-              height: "574.74px",
+              height: "825px", // Match the Figma/placeholder height
             }}
           >
-            <div
-              className="absolute inset-0"
-              style={{
-                backgroundImage:
-                  "url('https://placehold.co/265x575/f5f5f7/0f172a?text=Mobile+App')",
-                backgroundSize: "cover",
-              }}
+            <Image
+              src="/assets/fitcy_Header_Image.png"
+              alt="Fitcy Health Case Study Header"
+              fill
+              className="object-cover object-center" // Full width cover
+              priority
+              unoptimized
             />
-            {/* Mobile content placeholder */}
-            <div
-              className="absolute inset-0 flex flex-col items-center justify-center p-4"
-              aria-hidden="true"
-            >
-              <p className="text-center text-xs text-slate-500">
-                Mobile App Mockup
-              </p>
-            </div>
-          </div>
-
-          {/* Browser Mockup - Middle */}
-          <div
-            className="relative flex-shrink-0 overflow-hidden rounded-[6.39px] bg-white"
-            style={{
-              width: "910.22px",
-              height: "574.74px",
-              boxShadow:
-                "0px 26.64px 55.5px 0px rgba(0, 0, 0, 0.05)",
-            }}
-          >
-            {/* Browser Address Bar */}
-            <div
-              className="h-[33.81px] w-full border-b border-slate-200 bg-white/75 backdrop-blur-[52px]"
-              style={{
-                borderRadius: "20.44px 20.44px 0px 0px",
-              }}
-            >
-              <div className="flex h-full items-center gap-2 px-4">
-                <div className="flex gap-1">
-                  <div className="h-2 w-2 rounded-full bg-red-500" />
-                  <div className="h-2 w-2 rounded-full bg-yellow-500" />
-                  <div className="h-2 w-2 rounded-full bg-green-500" />
-                </div>
-                <div className="flex-1 rounded-md bg-slate-100 px-3 py-1 text-xs text-slate-600">
-                  app.fitcyhealth.com
-                </div>
-              </div>
-            </div>
-            {/* Browser Content */}
-            <div
-              className="h-[calc(100%-33.81px)] w-full"
-              style={{
-                backgroundImage:
-                  "url('https://placehold.co/910x541/f5f5f7/0f172a?text=Web+Platform')",
-                backgroundSize: "cover",
-              }}
-            />
-          </div>
-
-          {/* Video Call Mockup - Right */}
-          <div
-            className="relative flex-shrink-0 overflow-hidden rounded-[22.99px] border-[2.3px] border-[#F9F9F9] bg-[#292828]"
-            style={{
-              width: "265.34px",
-              height: "574.74px",
-              boxShadow: "0px 0px 27.59px 0px rgba(226, 226, 226, 0.45)",
-            }}
-          >
-            <div
-              className="absolute inset-0"
-              style={{
-                backgroundImage:
-                  "url('https://placehold.co/265x575/292828/ffffff?text=Video+Call')",
-                backgroundSize: "cover",
-              }}
-            />
-            {/* Video call content placeholder */}
-            <div
-              className="absolute inset-0 flex flex-col items-center justify-center p-4"
-              aria-hidden="true"
-            >
-              <p className="text-center text-xs text-white/70">
-                Video Call Mockup
-              </p>
-            </div>
           </div>
         </div>
       </section>
@@ -243,7 +139,7 @@ export default async function CaseStudyDetailPage({
       <section
         className="flex flex-col items-center bg-white"
         style={{
-          padding: "24px 6px",
+          padding: "60px 6px 24px",
         }}
       >
         <div className="mx-auto flex w-full max-w-[1024px] flex-row justify-stretch gap-[55px] px-6">

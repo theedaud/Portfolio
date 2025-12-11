@@ -1,13 +1,14 @@
 import Image from "next/image";
+import Link from "next/link";
 import { cn } from "@/lib/utils";
 
-export function Header() {
+export function Header({ className }: { className?: string }) {
   return (
-    <header className="z-50 bg-white/50 pt-[60px]">
+    <header className={cn("z-50 bg-white/50 pt-[60px] pb-4 overflow-visible", className)}>
       <div className="mx-auto flex max-w-[1024px] items-end justify-between gap-2 px-6 md:px-12">
         {/* Logo Container */}
         <div className="flex flex-col gap-[6px]">
-          <a href="/" className="flex items-center" aria-label="Home">
+          <Link href="/" className="flex items-center" aria-label="Home">
             <Image
               src="/assets/logo.svg"
               alt="Ahmed Daud"
@@ -16,7 +17,7 @@ export function Header() {
               className="h-auto w-auto"
               priority
             />
-          </a>
+          </Link>
           <p
             className={cn(
               "font-archivo text-[14px] font-normal uppercase leading-[1.4em] tracking-[-0.03em] text-[#363636] opacity-70"

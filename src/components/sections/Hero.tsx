@@ -29,7 +29,7 @@ function HeroMarquee() {
     <div className="relative w-full overflow-hidden">
       <motion.div
         className="flex items-center gap-6"
-        animate={{ x: "-50%" }}
+        animate={{ x: "-33.333%" }}
         transition={{
           ease: "linear",
           duration: isHovered ? hoverDuration : baseDuration,
@@ -95,7 +95,7 @@ export function Hero() {
 
           {/* Subtext */}
           <p
-            className="font-sans font-regular text-[#363636]"
+            className="font-sans font-normal text-[#363636]"
             style={{
               fontSize: "20px",
               lineHeight: "1.35em",
