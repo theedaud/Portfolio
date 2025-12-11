@@ -1,5 +1,4 @@
 import { notFound } from "next/navigation";
-import Link from "next/link";
 import Image from "next/image";
 import { Header } from "@/components/layout/Header";
 
@@ -161,7 +160,10 @@ export default async function CaseStudyDetailPage({
               }}
             />
             {/* Mobile content placeholder */}
-            <div className="absolute inset-0 flex flex-col items-center justify-center p-4">
+            <div
+              className="absolute inset-0 flex flex-col items-center justify-center p-4"
+              aria-hidden="true"
+            >
               <p className="text-center text-xs text-slate-500">
                 Mobile App Mockup
               </p>
@@ -225,7 +227,10 @@ export default async function CaseStudyDetailPage({
               }}
             />
             {/* Video call content placeholder */}
-            <div className="absolute inset-0 flex flex-col items-center justify-center p-4">
+            <div
+              className="absolute inset-0 flex flex-col items-center justify-center p-4"
+              aria-hidden="true"
+            >
               <p className="text-center text-xs text-white/70">
                 Video Call Mockup
               </p>
@@ -361,7 +366,7 @@ export default async function CaseStudyDetailPage({
                 }}
               >
                 Fitcy bridges the gap between people seeking mental health
-                support and therapists who who understand their culture, speak
+                support and therapists who understand their culture, speak
                 their language, and align with their needs.
               </p>
             </div>
@@ -501,7 +506,7 @@ export default async function CaseStudyDetailPage({
       >
         <div className="mx-auto flex w-full max-w-[1024px] flex-col gap-16 px-6">
           {/* Content Container */}
-          <div className="flex flex-col gap-6" style={{ width: "800px" }}>
+          <div className="flex w-full max-w-[800px] flex-col gap-6">
             {/* Title and Description */}
             <div className="flex flex-col gap-6">
               <h2

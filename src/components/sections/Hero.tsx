@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
 
@@ -24,7 +23,7 @@ function HeroMarquee() {
 
   const [isHovered, setIsHovered] = useState(false);
   const baseDuration = 90;
-  const hoverDuration = baseDuration * 3; // 50% slower = double duration
+  const hoverDuration = baseDuration * 3; // 3x slower on hover
 
   return (
     <div className="relative w-full overflow-hidden">
@@ -42,7 +41,7 @@ function HeroMarquee() {
       >
         {duplicatedImages.map((src, index) => (
           <motion.div
-            key={index}
+            key={`${src}-${index}`}
             className="group relative h-[500px] w-auto flex-shrink-0 rounded-[18px] border border-[rgba(180,180,180,0.2)] overflow-hidden cursor-pointer"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{

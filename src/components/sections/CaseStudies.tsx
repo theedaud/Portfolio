@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { cn } from "@/lib/utils";
 
 export function CaseStudies() {
   return (
@@ -66,9 +65,7 @@ export function CaseStudies() {
             {/* View Case Study Button */}
             <Link
               href="/case-studies/fitcy-health"
-              className={cn(
-                "inline-flex items-center self-start font-sans text-[#363636] transition-colors hover:opacity-80 underline"
-              )}
+              className="inline-flex items-center self-start font-sans text-[#363636] transition-colors hover:opacity-80 underline"
               style={{
                 fontSize: "20px",
                 lineHeight: "1.35em",
@@ -159,9 +156,7 @@ export function CaseStudies() {
             {/* View Case Study Button */}
             <Link
               href="/case-studies/savelifeai"
-              className={cn(
-                "inline-flex items-center self-start font-sans text-slate-300 transition-colors hover:opacity-80 underline"
-              )}
+              className="inline-flex items-center self-start font-sans text-slate-300 transition-colors hover:opacity-80 underline"
               style={{
                 fontSize: "20px",
                 lineHeight: "1.35em",

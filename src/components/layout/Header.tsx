@@ -7,7 +7,7 @@ export function Header() {
       <div className="mx-auto flex max-w-[1024px] items-end justify-between gap-2 px-6 md:px-12">
         {/* Logo Container */}
         <div className="flex flex-col gap-[6px]">
-          <a href="#home" className="flex items-center">
+          <a href="/" className="flex items-center" aria-label="Home">
             <Image
               src="/assets/logo.svg"
               alt="Ahmed Daud"
