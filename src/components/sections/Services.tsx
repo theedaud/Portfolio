@@ -1,55 +1,57 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { cn } from "@/lib/utils";
+
+// Service data extracted for cleaner component
+const services = [
+  {
+    title: "Research & Strategy",
+    items: [
+      "UX Research",
+      "User Journeys ⋅ Sitemaps",
+      "Product Strategy",
+      "Design Critique",
+    ],
+  },
+  {
+    title: "Design & Prototyping",
+    items: [
+      "End-to-End Product Experience",
+      "Interface Design",
+      "Design Systems",
+      "Design Management",
+    ],
+  },
+  {
+    title: "Conversion Optimization",
+    items: [
+      "Usability Testing",
+      "A/B Testing",
+      "Page Speed Optimization",
+      "Product Redesign",
+    ],
+  },
+];
+
+// Decorative card data
+const decorativeCards = [
+  { rotate: "-1.83deg", left: "-4px", top: "-11px", delay: 0 },
+  { rotate: "1.5deg", left: "291px", top: "15px", delay: 0.1 },
+  { rotate: "-1.83deg", left: "600px", top: "-5px", delay: 0.2 },
+];
 
 export function Services() {
-  const services = [
-    {
-      title: "Research & Strategy",
-      items: [
-        "UX Research ",
-        "User Journeys ⋅ Sitemaps ",
-        "Product Strategy",
-        "Design Critique ",
-      ],
-    },
-    {
-      title: "Design & Prototyping",
-      items: [
-        "End-to-End Product Experience ",
-        "Interface Design",
-        "Design Systems",
-        "Design Management ",
-      ],
-    },
-    {
-      title: "Conversion Optimization ",
-      items: [
-        "Usability Testing",
-        "A/B Testing",
-        "Page Speed Optimization ",
-        "Product Redesign ",
-      ],
-    },
-  ];
-
   return (
     <section
-      className="relative flex flex-col items-center overflow-hidden bg-white"
-      style={{
-        padding: "190px 0px 280px",
-        boxShadow: "inset 0px -20px 68px 0px rgba(0, 0, 0, 0.05)",
-      }}
+      className="relative flex flex-col items-center overflow-hidden bg-white py-24 md:pt-[190px] md:pb-[280px] shadow-[inset_0px_-20px_68px_0px_rgba(0,0,0,0.05)]"
+      aria-labelledby="services-heading"
     >
-      <div className="mx-auto flex w-full max-w-[1024px] flex-col gap-16 px-6">
+      <div className="mx-auto flex w-full max-w-[1024px] flex-col gap-10 md:gap-16 px-6">
         {/* Section Heading */}
         <h2
-          className="font-sans font-medium text-black"
-          style={{
-            fontSize: "32px",
-            lineHeight: "1.1em",
-            letterSpacing: "-0.04em", // -4%
-          }}
+          id="services-heading"
+          className="font-sans font-medium text-black text-3xl md:text-[32px] leading-[1.1em] tracking-[-0.04em]"
         >
           What i can help with:
         </h2>
@@ -59,35 +61,21 @@ export function Services() {
           {services.map((service, index) => (
             <div
               key={index}
-              className="flex flex-col gap-6 rounded-xl"
-              style={{
-                borderRadius: "12px",
-              }}
+              className="flex flex-col gap-4 md:gap-6 rounded-xl"
             >
               {/* Service Category Title */}
               <h3
-                className="font-sans font-medium text-black"
-                style={{
-                  fontSize: "16px",
-                  lineHeight: "1.05em",
-                  letterSpacing: "-0.03em", // -3%
-                }}
+                className="font-sans font-medium text-black text-lg md:text-[16px] leading-[1.05em] tracking-[-0.03em]"
               >
                 {service.title}
               </h3>
 
               {/* Service List */}
-              <ul className="flex flex-col gap-1.5">
+              <ul className="flex flex-col gap-1.5" role="list">
                 {service.items.map((item, itemIndex) => (
                   <li
                     key={itemIndex}
-                    className="font-sans font-normal"
-                    style={{
-                      fontSize: "14px",
-                      lineHeight: "1.3em",
-                      letterSpacing: "-0.025em", // -2.5%
-                      color: "#3F3F46", // Grey/700
-                    }}
+                    className="font-sans font-normal text-[#3F3F46] text-base md:text-[14px] leading-[1.3em] tracking-[-0.025em]"
                   >
                     {item}
                   </li>
@@ -98,124 +86,49 @@ export function Services() {
         </div>
       </div>
 
-      {/* Image Container - Three Overlapping Boxes (60% visible, clipped) */}
+      {/* Image Container - Three Overlapping Boxes (Visible only on desktop) */}
       <div
-        className="absolute left-1/2 overflow-hidden"
-        style={{
-          width: "60%",
-          height: "288px",
-          bottom: "-106px",
-          transform: "translateX(-50%)",
-        }}
+        className={cn(
+          "hidden md:block absolute left-1/2 overflow-hidden",
+          "w-[60%] h-[288px] -bottom-[106px] -translate-x-1/2"
+        )}
+        aria-hidden="true"
       >
         {/* Full width container for boxes, positioned to show 60% */}
-        <div
-          className="relative"
-          style={{
-            width: "962px",
-            height: "100%",
-            left: "50%",
-            transform: "translateX(-50%)",
-          }}
-        >
-          {/* Image 1 (Leftmost - Foremost) */}
-          <motion.div
-            className="absolute bg-[#F5F5F7] cursor-pointer"
-            initial={{ opacity: 0, y: 60, rotate: -1.83, scale: 0.95 }}
-            whileInView={{
-              opacity: 1,
-              y: 0,
-              rotate: -1.83,
-              scale: 1,
-            }}
-            viewport={{ once: false }}
-            whileHover={{ y: -10 }}
-            transition={{
-              type: "spring",
-              stiffness: 100,
-              damping: 15,
-              duration: 0.4,
-              delay: 0,
-            }}
-            style={{
-              width: "333.567px",
-              height: "246.734px",
-              left: "-3.641px",
-              top: "-11px",
-              borderRadius: "12.707px",
-              border: "4.236px solid #FFF",
-              background: "#F5F5F7",
-              boxShadow: "0 4.236px 25.415px -1.588px rgba(0, 0, 0, 0.05)",
-              transform: "rotate(-1.83deg)",
-            }}
-          />
-
-          {/* Image 2 (Middle - Behind leftmost) */}
-          <motion.div
-            className="absolute bg-[#F5F5F7] cursor-pointer"
-            initial={{ opacity: 0, y: 60, rotate: 1.5, scale: 0.95 }}
-            whileInView={{
-              opacity: 1,
-              y: 0,
-              rotate: 1.5,
-              scale: 1,
-            }}
-            viewport={{ once: false }}
-            whileHover={{ y: -10 }}
-            transition={{
-              type: "spring",
-              stiffness: 100,
-              damping: 15,
-              duration: 0.4,
-              delay: 0.1,
-            }}
-            style={{
-              width: "333.567px",
-              height: "246.734px",
-              left: "291px",
-              top: "15px",
-              borderRadius: "12.707px",
-              border: "4.236px solid #FFF",
-              background: "#F5F5F7",
-              boxShadow: "0 4.236px 25.415px -1.588px rgba(0, 0, 0, 0.05)",
-              transform: "rotate(1.5deg)",
-            }}
-          />
-
-          {/* Image 3 (Rightmost - Behind middle, fanned higher) */}
-          <motion.div
-            className="absolute bg-[#F5F5F7] cursor-pointer"
-            initial={{ opacity: 0, y: 60, rotate: -1.83, scale: 0.95 }}
-            whileInView={{
-              opacity: 1,
-              y: 0,
-              rotate: -1.83,
-              scale: 1,
-            }}
-            viewport={{ once: false }}
-            whileHover={{ y: -10 }}
-            transition={{
-              type: "spring",
-              stiffness: 100,
-              damping: 15,
-              duration: 0.4,
-              delay: 0.2,
-            }}
-            style={{
-              width: "333.567px",
-              height: "246.734px",
-              left: "600px",
-              top: "-5px",
-              borderRadius: "12.707px",
-              border: "4.236px solid #FFF",
-              background: "#F5F5F7",
-              boxShadow: "0 4.236px 25.415px -1.588px rgba(0, 0, 0, 0.05)",
-              transform: "rotate(-1.83deg)",
-            }}
-          />
+        <div className="relative w-[962px] h-full left-1/2 -translate-x-1/2">
+          {decorativeCards.map((card, index) => (
+            <motion.div
+              key={index}
+              className={cn(
+                "absolute bg-[#F5F5F7] cursor-pointer",
+                "w-[334px] h-[247px] rounded-[13px]",
+                "border-4 border-white",
+                "shadow-[0_4px_25px_-2px_rgba(0,0,0,0.05)]"
+              )}
+              initial={{ opacity: 0, y: 60, scale: 0.95 }}
+              whileInView={{
+                opacity: 1,
+                y: 0,
+                scale: 1,
+              }}
+              viewport={{ once: false }}
+              whileHover={{ y: -10 }}
+              transition={{
+                type: "spring",
+                stiffness: 100,
+                damping: 15,
+                duration: 0.4,
+                delay: card.delay,
+              }}
+              style={{
+                left: card.left,
+                top: card.top,
+                rotate: card.rotate,
+              }}
+            />
+          ))}
         </div>
       </div>
     </section>
   );
 }
-
