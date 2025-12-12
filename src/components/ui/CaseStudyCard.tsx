@@ -90,7 +90,7 @@ export function CaseStudyCard({ study }: CaseStudyCardProps) {
                         alt={`${study.title} Case Study`}
                         fill
                         className="object-cover"
-                        unoptimized
+                        sizes="(max-width: 768px) 100vw, 1024px"
                     />
                 </motion.div>
             </div>

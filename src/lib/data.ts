@@ -16,7 +16,7 @@ export const caseStudies: CaseStudy[] = [
     description:
       "Designed the UI and UX for Fitcy Health, delivering the complete mobile app, web platform, and responsive website.",
     imageUrl:
-      "https://placehold.co/1600x900/f5f5f7/0f172a?text=Fitcy+Health+Case+Study",
+      "https://placehold.co/1600x900/f5f5f7/0f172a.png?text=Fitcy+Health+Case+Study",
     theme: "light",
     categoryColor: "#134E48",
   },
@@ -27,7 +27,7 @@ export const caseStudies: CaseStudy[] = [
     description:
       "An AI-powered emergency response system that connects patients with critical care resources in real-time.",
     imageUrl:
-      "https://placehold.co/1600x900/1e293b/ffffff?text=SaveLifeAI+Case+Study",
+      "https://placehold.co/1600x900/1e293b/ffffff.png?text=SaveLifeAI+Case+Study",
     theme: "dark",
   },
 ];

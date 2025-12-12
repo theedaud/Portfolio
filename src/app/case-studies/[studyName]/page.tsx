@@ -81,7 +81,7 @@ export default async function CaseStudyDetailPage({
                 alt={`${caseStudy.title} Case Study`}
                 fill
                 className="object-cover"
-                unoptimized
+                sizes="(max-width: 1024px) 100vw, 1024px"
               />
             </div>
           </div>
@@ -108,7 +108,7 @@ export default async function CaseStudyDetailPage({
             height={825}
             className="w-full h-auto min-h-[300px] object-cover md:min-h-0"
             priority
-            unoptimized
+            sizes="100vw"
           />
         </div>
       </section>
@@ -271,11 +271,11 @@ export default async function CaseStudyDetailPage({
                   role="listitem"
                 >
                   <Image
-                    src={`https://placehold.co/800x600/f5f5f7/0f172a?text=Therapist+Matching+${num}`}
+                    src={`https://placehold.co/800x600/f5f5f7/0f172a.png?text=Therapist+Matching+${num}`}
                     alt={`Therapist Matching mockup ${num}`}
                     fill
                     className="object-cover"
-                    unoptimized
+                    sizes="(max-width: 768px) 100vw, 33vw"
                   />
                 </div>
               ))}
