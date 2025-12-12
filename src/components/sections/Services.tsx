@@ -89,7 +89,7 @@ export function Services() {
       {/* Image Container - Three Overlapping Boxes (Visible only on desktop) */}
       <div
         className={cn(
-          "hidden md:block absolute left-1/2 overflow-hidden",
+          "hidden md:block absolute left-1/2",
           "w-[60%] h-[288px] -bottom-[106px] -translate-x-1/2"
         )}
         aria-hidden="true"
