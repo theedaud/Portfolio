@@ -110,6 +110,18 @@ export default async function CaseStudyDetailPage({
             priority
             sizes="100vw"
           />
+          
+          {/* Cover Screenshot - Absolutely positioned, sticky to bottom of header image */}
+          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 z-10 w-[80vw]">
+            <Image
+              src="/assets/coverScreenshot.png"
+              alt="Fitcy Health Product Mockups"
+              width={1200}
+              height={600}
+              className="w-full h-auto object-contain"
+              sizes="80vw"
+            />
+          </div>
         </div>
       </section>
 

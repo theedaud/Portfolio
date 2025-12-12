@@ -4,35 +4,35 @@ import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 // Service data extracted for cleaner component
-const services = [
-  {
-    title: "Research & Strategy",
-    items: [
+  const services = [
+    {
+      title: "Research & Strategy",
+      items: [
       "UX Research",
       "User Journeys ⋅ Sitemaps",
-      "Product Strategy",
+        "Product Strategy",
       "Design Critique",
-    ],
-  },
-  {
-    title: "Design & Prototyping",
-    items: [
+      ],
+    },
+    {
+      title: "Design & Prototyping",
+      items: [
       "End-to-End Product Experience",
-      "Interface Design",
-      "Design Systems",
+        "Interface Design",
+        "Design Systems",
       "Design Management",
-    ],
-  },
-  {
+      ],
+    },
+    {
     title: "Conversion Optimization",
-    items: [
-      "Usability Testing",
-      "A/B Testing",
+      items: [
+        "Usability Testing",
+        "A/B Testing",
       "Page Speed Optimization",
       "Product Redesign",
-    ],
-  },
-];
+      ],
+    },
+  ];
 
 // Decorative card data
 const decorativeCards = [
@@ -97,7 +97,7 @@ export function Services() {
         {/* Full width container for boxes, positioned to show 60% */}
         <div className="relative w-[962px] h-full left-1/2 -translate-x-1/2">
           {decorativeCards.map((card, index) => (
-            <motion.div
+          <motion.div
               key={index}
               className={cn(
                 "absolute bg-[#F5F5F7] cursor-pointer",
@@ -106,26 +106,26 @@ export function Services() {
                 "shadow-[0_4px_25px_-2px_rgba(0,0,0,0.05)]"
               )}
               initial={{ opacity: 0, y: 60, scale: 0.95 }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-                scale: 1,
-              }}
-              viewport={{ once: false }}
-              whileHover={{ y: -10 }}
-              transition={{
-                type: "spring",
-                stiffness: 100,
-                damping: 15,
-                duration: 0.4,
+            whileInView={{
+              opacity: 1,
+              y: 0,
+              scale: 1,
+            }}
+            viewport={{ once: false }}
+            whileHover={{ y: -10 }}
+            transition={{
+              type: "spring",
+              stiffness: 100,
+              damping: 15,
+              duration: 0.4,
                 delay: card.delay,
-              }}
-              style={{
+            }}
+            style={{
                 left: card.left,
                 top: card.top,
                 rotate: card.rotate,
-              }}
-            />
+            }}
+          />
           ))}
         </div>
       </div>
