@@ -19,6 +19,47 @@ body {
   font-family: var(--font-archivo);
 }
 
+@layer components {
+  /* Heading styles */
+  .text-heading-xl {
+    @apply font-sans font-medium text-black text-3xl md:text-[48px] leading-[1.1em] tracking-[-0.06em];
+  }
+
+  .text-heading-lg {
+    @apply font-sans font-medium text-black text-3xl md:text-[32px] leading-[1.1em] tracking-[-0.04em];
+  }
+
+  .text-heading-md {
+    @apply font-sans font-semibold text-[#18181B] text-lg md:text-[20px] leading-[1.3em] tracking-[-0.025em];
+  }
+
+  /* Body text styles */
+  .text-body-lg {
+    @apply font-sans font-normal text-[#3F3F46] text-lg md:text-[20px] leading-[1.35em] tracking-[-0.015em];
+  }
+
+  .text-body-md {
+    @apply font-sans font-normal text-[#3F3F46] text-lg md:text-[18px] leading-[1.4em] tracking-[-0.015em];
+  }
+
+  .text-body-sm {
+    @apply font-sans font-medium text-black text-base md:text-[16px] leading-[1.05em] tracking-[-0.03em];
+  }
+
+  /* Label styles */
+  .text-label {
+    @apply font-sans font-semibold uppercase text-sm tracking-[-0.03em] leading-[1.4em];
+  }
+
+  .text-label-muted {
+    @apply font-sans font-semibold uppercase text-[#3F3F46] text-sm tracking-[-0.03em] leading-[1.4em];
+  }
+
+  .text-label-accent {
+    @apply font-sans font-semibold uppercase text-[#134E48] text-sm tracking-[-0.03em] leading-[1.4em];
+  }
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;

@@ -4,35 +4,35 @@ import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 // Service data extracted for cleaner component
-  const services = [
-    {
-      title: "Research & Strategy",
-      items: [
+const services = [
+  {
+    title: "Research & Strategy",
+    items: [
       "UX Research",
       "User Journeys ⋅ Sitemaps",
-        "Product Strategy",
+      "Product Strategy",
       "Design Critique",
-      ],
-    },
-    {
-      title: "Design & Prototyping",
-      items: [
+    ],
+  },
+  {
+    title: "Design & Prototyping",
+    items: [
       "End-to-End Product Experience",
-        "Interface Design",
-        "Design Systems",
+      "Interface Design",
+      "Design Systems",
       "Design Management",
-      ],
-    },
-    {
+    ],
+  },
+  {
     title: "Conversion Optimization",
-      items: [
-        "Usability Testing",
-        "A/B Testing",
+    items: [
+      "Usability Testing",
+      "A/B Testing",
       "Page Speed Optimization",
       "Product Redesign",
-      ],
-    },
-  ];
+    ],
+  },
+];
 
 // Decorative card data
 const decorativeCards = [
@@ -53,7 +53,7 @@ export function Services() {
           id="services-heading"
           className="font-sans font-medium text-black text-3xl md:text-[32px] leading-[1.1em] tracking-[-0.04em]"
         >
-          What i can help with:
+          What I can help with:
         </h2>
 
         {/* Services Container */}
@@ -111,7 +111,7 @@ export function Services() {
               y: 0,
               scale: 1,
             }}
-            viewport={{ once: false }}
+            viewport={{ once: true }}
             whileHover={{ y: -10 }}
             transition={{
               type: "spring",

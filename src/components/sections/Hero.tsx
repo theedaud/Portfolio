@@ -20,8 +20,8 @@ const tickerImages = [
 ];
 
 function HeroMarquee() {
-  // Duplicate the array multiple times for seamless infinite loop
-  const duplicatedImages = [...tickerImages, ...tickerImages, ...tickerImages];
+  // Duplicate the array twice for seamless infinite loop (reduced from 3x to 2x)
+  const duplicatedImages = [...tickerImages, ...tickerImages];
 
   const [isHovered, setIsHovered] = useState(false);
   const baseDuration = 90;
@@ -31,7 +31,7 @@ function HeroMarquee() {
     <div className="relative w-full overflow-hidden" aria-label="Project showcase gallery">
       <motion.div
         className="flex items-center gap-4 md:gap-6"
-        animate={{ x: "-33.333%" }}
+        animate={{ x: "-50%" }}
         transition={{
           ease: "linear",
           duration: isHovered ? hoverDuration : baseDuration,
@@ -66,7 +66,8 @@ function HeroMarquee() {
               height={500}
               className="h-full w-auto object-contain pointer-events-none"
               sizes="(max-width: 768px) 300px, 500px"
-              priority={index < 3}
+              loading={index < 4 ? "eager" : "lazy"}
+              priority={index < 2}
             />
           </motion.div>
         ))}

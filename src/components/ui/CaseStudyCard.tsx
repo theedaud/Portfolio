@@ -81,7 +81,7 @@ export function CaseStudyCard({ study }: CaseStudyCardProps) {
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.2 }}
                     className={cn(
-                        "relative w-full overflow-hidden rounded-2xl md:rounded-3xl h-[300px] md:h-[620.09px]",
+                        "relative w-full overflow-hidden rounded-2xl md:rounded-3xl h-[300px] md:h-[620px]",
                         isDark ? "bg-slate-800" : "bg-[#F5F5F7]"
                     )}
                 >
