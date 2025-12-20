@@ -2,44 +2,7 @@
 
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
-
-// Service data extracted for cleaner component
-const services = [
-  {
-    title: "Research & Strategy",
-    items: [
-      "UX Research",
-      "User Journeys ⋅ Sitemaps",
-      "Product Strategy",
-      "Design Critique",
-    ],
-  },
-  {
-    title: "Design & Prototyping",
-    items: [
-      "End-to-End Product Experience",
-      "Interface Design",
-      "Design Systems",
-      "Design Management",
-    ],
-  },
-  {
-    title: "Conversion Optimization",
-    items: [
-      "Usability Testing",
-      "A/B Testing",
-      "Page Speed Optimization",
-      "Product Redesign",
-    ],
-  },
-];
-
-// Decorative card data
-const decorativeCards = [
-  { rotate: "-1.83deg", left: "-4px", top: "-11px", delay: 0 },
-  { rotate: "1.5deg", left: "291px", top: "15px", delay: 0.1 },
-  { rotate: "-1.83deg", left: "600px", top: "-5px", delay: 0.2 },
-];
+import { services, decorativeCards } from "@/lib/data";
 
 export function Services() {
   return (
@@ -51,7 +14,7 @@ export function Services() {
         {/* Section Heading */}
         <h2
           id="services-heading"
-          className="font-sans font-medium text-black text-3xl md:text-[32px] leading-[1.1em] tracking-[-0.04em]"
+          className="font-sans font-medium text-black text-2xl sm:text-3xl md:text-[32px] leading-[1.1em] tracking-[-0.04em]"
         >
           What I can help with:
         </h2>
@@ -65,7 +28,7 @@ export function Services() {
             >
               {/* Service Category Title */}
               <h3
-                className="font-sans font-medium text-black text-lg md:text-[16px] leading-[1.05em] tracking-[-0.03em]"
+                className="font-sans font-medium text-black text-base md:text-lg leading-[1.05em] tracking-[-0.03em]"
               >
                 {service.title}
               </h3>
@@ -75,7 +38,7 @@ export function Services() {
                 {service.items.map((item, itemIndex) => (
                   <li
                     key={itemIndex}
-                    className="font-sans font-normal text-[#3F3F46] text-base md:text-[14px] leading-[1.3em] tracking-[-0.025em]"
+                    className="font-sans font-normal text-[#3F3F46] text-sm md:text-base leading-[1.3em] tracking-[-0.025em]"
                   >
                     {item}
                   </li>
@@ -89,19 +52,19 @@ export function Services() {
       {/* Image Container - Three Overlapping Boxes (Visible only on desktop) */}
       <div
         className={cn(
-          "hidden md:block absolute left-1/2",
-          "w-[60%] h-[288px] -bottom-[106px] -translate-x-1/2"
+          "hidden lg:block absolute left-1/2",
+          "w-[80%] xl:w-[60%] h-[288px] -bottom-[106px] -translate-x-1/2"
         )}
         aria-hidden="true"
       >
-        {/* Full width container for boxes, positioned to show 60% */}
-        <div className="relative w-[962px] h-full left-1/2 -translate-x-1/2">
+        {/* Full width container for boxes, responsive sizing */}
+        <div className="relative w-full max-w-[962px] h-full left-1/2 -translate-x-1/2">
           {decorativeCards.map((card, index) => (
           <motion.div
               key={index}
               className={cn(
                 "absolute bg-[#F5F5F7] cursor-pointer",
-                "w-[334px] h-[247px] rounded-[13px]",
+                "w-[280px] xl:w-[334px] h-[200px] xl:h-[247px] rounded-[13px]",
                 "border-4 border-white",
                 "shadow-[0_4px_25px_-2px_rgba(0,0,0,0.05)]"
               )}

@@ -1,3 +1,53 @@
+// Services data
+export interface Service {
+  title: string;
+  items: string[];
+}
+
+export interface DecorativeCard {
+  rotate: string;
+  left: string;
+  top: string;
+  delay: number;
+}
+
+export const services: Service[] = [
+  {
+    title: "Research & Strategy",
+    items: [
+      "UX Research",
+      "User Journeys ⋅ Sitemaps",
+      "Product Strategy",
+      "Design Critique",
+    ],
+  },
+  {
+    title: "Design & Prototyping",
+    items: [
+      "End-to-End Product Experience",
+      "Interface Design",
+      "Design Systems",
+      "Design Management",
+    ],
+  },
+  {
+    title: "Conversion Optimization",
+    items: [
+      "Usability Testing",
+      "A/B Testing",
+      "Page Speed Optimization",
+      "Product Redesign",
+    ],
+  },
+];
+
+export const decorativeCards: DecorativeCard[] = [
+  { rotate: "-1.83deg", left: "-4px", top: "-11px", delay: 0 },
+  { rotate: "1.5deg", left: "291px", top: "15px", delay: 0.1 },
+  { rotate: "-1.83deg", left: "600px", top: "-5px", delay: 0.2 },
+];
+
+// Case study data
 export interface ChallengeCard {
   bg: string;
   accent: string;
@@ -97,6 +147,17 @@ export const caseStudies: CaseStudy[] = [
             "/assets/therapist-matching-6.jpg",
             "/assets/therapist-matching-7.jpg",
             "/assets/therapist-matching-8.jpg",
+          ],
+        },
+        {
+          title: "Session Management",
+          description:
+            "Users struggled with scheduling, rescheduling, and tracking their therapy sessions. The lack of a centralized session management system made it difficult to view upcoming appointments, access session history, and manage cancellations effectively.",
+          images: [
+            "/assets/session-management-3.jpg",
+            "/assets/session-management-1.jpg",
+            "/assets/session-management-2.jpg",
+            "/assets/session-management-4.jpg",
           ],
         },
       ],

@@ -62,16 +62,16 @@ export default async function CaseStudyDetailPage({
                 </span>
                 <h1
                   id="case-study-title"
-                  className="font-sans font-medium text-black text-3xl md:text-[32px] leading-[1.1em] tracking-[-0.04em]"
+                  className="font-sans font-medium text-black text-2xl sm:text-3xl md:text-[32px] leading-[1.1em] tracking-[-0.04em]"
                 >
                   {caseStudy.title}
                 </h1>
               </div>
-              <p className="font-sans font-normal text-[#3F3F46] text-lg md:text-[20px] leading-[1.35em] tracking-[-0.015em]">
+              <p className="font-sans font-normal text-[#3F3F46] text-base sm:text-lg md:text-[19px] lg:text-[20px] leading-[1.35em] tracking-[-0.015em]">
                 {caseStudy.description}
               </p>
             </div>
-            <div className="relative w-full overflow-hidden rounded-2xl md:rounded-3xl bg-[#F5F5F7] h-[300px] md:h-[620px]">
+            <div className="relative w-full overflow-hidden rounded-2xl md:rounded-3xl bg-[#F5F5F7] h-[280px] sm:h-[380px] md:h-[500px] lg:h-[620px]">
               <Image
                 src={caseStudy.imageUrl}
                 alt={`${caseStudy.title} Case Study`}
@@ -111,14 +111,14 @@ export default async function CaseStudyDetailPage({
 
             {/* Cover Screenshot */}
             {detail.coverImage && (
-              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 z-10 w-[80vw]">
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 z-10 w-[95vw] sm:w-[90vw] md:w-[85vw] lg:w-[80vw]">
                 <Image
                   src={detail.coverImage}
                   alt={`${caseStudy.title} Product Mockups`}
                   width={1200}
                   height={600}
                   className="w-full h-auto object-contain"
-                  sizes="80vw"
+                  sizes="(max-width: 640px) 95vw, (max-width: 768px) 90vw, (max-width: 1024px) 85vw, 80vw"
                   quality={95}
                 />
               </div>
@@ -184,7 +184,7 @@ export default async function CaseStudyDetailPage({
           <div className="mx-auto flex w-full max-w-[1024px] flex-col gap-12 md:gap-16 px-6">
             <h2
               id="about-project-heading"
-              className="font-sans font-medium text-black text-3xl md:text-[48px] leading-[1.1em] tracking-[-0.06em]"
+              className="font-sans font-medium text-black text-2xl sm:text-3xl md:text-[40px] lg:text-[48px] leading-[1.1em] tracking-[-0.06em]"
             >
               About Project
             </h2>
@@ -207,20 +207,14 @@ export default async function CaseStudyDetailPage({
                     Challenges
                   </h3>
                   <div
-                    className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4"
+                    className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-4"
                     role="list"
                   >
                     {detail.challenges.map((challenge, index) => (
                       <div
                         key={index}
-                        className="relative overflow-hidden rounded-2xl border border-white shadow-[0px_1px_4px_0px_rgba(0,0,0,0.06),0px_2px_8px_0px_rgba(0,0,0,0.03)]"
-                        style={{ 
-                          backgroundColor: challenge.bg,
-                          padding: '24px',
-                          minHeight: '140px',
-                          display: 'flex',
-                          alignItems: 'flex-start'
-                        }}
+                        className="relative overflow-hidden rounded-2xl border border-white shadow-[0px_1px_4px_0px_rgba(0,0,0,0.06),0px_2px_8px_0px_rgba(0,0,0,0.03)] p-6 min-h-[140px] flex items-start"
+                        style={{ backgroundColor: challenge.bg }}
                         role="listitem"
                       >
                         <p
@@ -252,7 +246,7 @@ export default async function CaseStudyDetailPage({
               <div className="flex w-full max-w-[800px] flex-col gap-6">
                 <h2
                   id={`section-${sectionIndex}-heading`}
-                  className="font-sans font-medium text-black text-3xl md:text-[32px] leading-[1.1em] tracking-[-0.04em]"
+                  className="font-sans font-medium text-black text-2xl sm:text-3xl md:text-[32px] leading-[1.1em] tracking-[-0.04em]"
                 >
                   {section.title}
                 </h2>
@@ -275,35 +269,24 @@ export default async function CaseStudyDetailPage({
                     return (
                       <div
                         key={groupIndex}
-                        className="rounded-[24px] bg-slate-50/50"
-                        style={{ padding: '40px' }}
+                        className="rounded-[24px] bg-slate-50/50 p-10"
                       >
-                        <div 
-                          className="flex flex-wrap justify-center gap-6 w-full"
-                          style={{ flexWrap: 'wrap' }}
+                        <div
+                          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 w-full"
                         >
                           {groupImages.map((image, imageIndex) => (
                             <div
                               key={startIndex + imageIndex}
-                              className="relative overflow-hidden rounded-[24px] bg-white border border-slate-100 w-full md:w-[calc(33.333%-1rem)]"
-                              style={{ 
-                                padding: '0px'
-                              }}
+                              className="relative overflow-hidden rounded-[24px] bg-white border border-slate-100"
                               role="listitem"
                             >
-                              <div 
-                                className="relative w-full h-full mx-auto"
-                                style={{ 
-                                  aspectRatio: '9/19.5',
-                                  maxWidth: '100%'
-                                }}
-                              >
+                              <div className="relative w-full h-full mx-auto aspect-[9/19.5] max-w-full">
                                 <Image
                                   src={image}
                                   alt={`${section.title} mockup ${startIndex + imageIndex + 1}`}
                                   fill
                                   className="object-cover"
-                                  sizes="(max-width: 768px) 100vw, 33vw"
+                                  sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
                                   quality={95}
                                   priority={startIndex + imageIndex < 3}
                                 />

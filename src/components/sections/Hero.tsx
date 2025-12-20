@@ -44,7 +44,7 @@ function HeroMarquee() {
         {duplicatedImages.map((src, index) => (
           <motion.div
             key={`${src}-${index}`}
-            className="group relative h-[300px] md:h-[500px] w-auto flex-shrink-0 rounded-2xl md:rounded-[18px] border border-[rgba(180,180,180,0.2)] overflow-hidden cursor-pointer"
+            className="group relative h-[280px] sm:h-[350px] md:h-[420px] lg:h-[500px] w-auto flex-shrink-0 rounded-2xl md:rounded-[18px] border border-[rgba(180,180,180,0.2)] overflow-hidden cursor-pointer"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{
               opacity: 1,
@@ -65,7 +65,7 @@ function HeroMarquee() {
               width={500}
               height={500}
               className="h-full w-auto object-contain pointer-events-none"
-              sizes="(max-width: 768px) 300px, 500px"
+              sizes="(max-width: 640px) 280px, (max-width: 768px) 350px, (max-width: 1024px) 420px, 500px"
               loading={index < 4 ? "eager" : "lazy"}
               priority={index < 2}
             />
@@ -89,7 +89,7 @@ export function Hero() {
           {/* Main Heading */}
           <h1
             id="hero-heading"
-            className="font-sans font-medium text-black text-4xl md:text-[48px] leading-[1.1em] tracking-[-0.06em]"
+            className="font-sans font-medium text-black text-3xl sm:text-4xl md:text-[44px] lg:text-[48px] leading-[1.1em] tracking-[-0.06em]"
           >
             Healthcare UX Designer & Strategist:
             <br />
@@ -98,7 +98,7 @@ export function Hero() {
 
           {/* Subtext */}
           <p
-            className="font-sans font-normal text-[#363636] text-lg md:text-[20px] leading-[1.35em] tracking-[-0.015em]"
+            className="font-sans font-normal text-[#363636] text-base sm:text-lg md:text-[19px] lg:text-[20px] leading-[1.35em] tracking-[-0.015em]"
           >
             Designing better healthcare, fintech & Saas products. Specialised
             in mobile applications, and web platforms

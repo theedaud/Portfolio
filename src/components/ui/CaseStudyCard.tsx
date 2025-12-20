@@ -43,7 +43,7 @@ export function CaseStudyCard({ study }: CaseStudyCardProps) {
                         {/* Project Title */}
                         <h2
                             className={cn(
-                                "font-sans font-medium text-3xl md:text-[32px] leading-[1.1em] tracking-[-0.04em]",
+                                "font-sans font-medium text-2xl sm:text-3xl md:text-[32px] leading-[1.1em] tracking-[-0.04em]",
                                 isDark ? "text-white" : "text-black"
                             )}
                         >
@@ -54,7 +54,7 @@ export function CaseStudyCard({ study }: CaseStudyCardProps) {
                     {/* Description */}
                     <p
                         className={cn(
-                            "font-sans font-normal text-lg md:text-[20px] leading-[1.35em] tracking-[-0.015em]",
+                            "font-sans font-normal text-base sm:text-lg md:text-[19px] lg:text-[20px] leading-[1.35em] tracking-[-0.015em]",
                             isDark ? "text-slate-300" : "text-[#3F3F46]"
                         )}
                     >
@@ -65,7 +65,7 @@ export function CaseStudyCard({ study }: CaseStudyCardProps) {
                     <Link
                         href={`/case-studies/${study.slug}`}
                         className={cn(
-                            "inline-flex items-center self-start font-sans transition-colors hover:opacity-80 underline text-lg md:text-[20px] leading-[1.35em] tracking-[-0.015em]",
+                            "inline-flex items-center self-start font-sans transition-colors hover:opacity-80 underline text-base sm:text-lg md:text-[19px] lg:text-[20px] leading-[1.35em] tracking-[-0.015em]",
                             isDark ? "text-slate-300" : "text-[#363636]"
                         )}
                         aria-label={`View ${study.title} case study`}
@@ -81,7 +81,7 @@ export function CaseStudyCard({ study }: CaseStudyCardProps) {
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.2 }}
                     className={cn(
-                        "relative w-full overflow-hidden rounded-2xl md:rounded-3xl h-[300px] md:h-[620px]",
+                        "relative w-full overflow-hidden rounded-2xl md:rounded-3xl h-[280px] sm:h-[380px] md:h-[500px] lg:h-[620px]",
                         isDark ? "bg-slate-800" : "bg-[#F5F5F7]"
                     )}
                 >
