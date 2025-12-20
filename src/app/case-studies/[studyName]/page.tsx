@@ -119,6 +119,7 @@ export default async function CaseStudyDetailPage({
                   height={600}
                   className="w-full h-auto object-contain"
                   sizes="80vw"
+                  quality={95}
                 />
               </div>
             )}
@@ -129,7 +130,7 @@ export default async function CaseStudyDetailPage({
       {/* Role Section */}
       {(detail.responsibilities || detail.timeline || detail.contributors) && (
         <section
-          className="flex flex-col items-center bg-white py-12 md:pt-[60px] md:pb-[24px]"
+          className="flex flex-col items-center bg-white py-12 md:pt-[24px] md:pb-[24px]"
           aria-label="Project details"
         >
           <div className="mx-auto flex w-full max-w-[1024px] flex-col md:flex-row justify-stretch gap-8 md:gap-[55px] px-6">
@@ -212,18 +213,19 @@ export default async function CaseStudyDetailPage({
                     {detail.challenges.map((challenge, index) => (
                       <div
                         key={index}
-                        className="relative overflow-hidden rounded-2xl border-4 border-white p-4 shadow-[0px_1px_8px_0px_rgba(0,0,0,0.11),0px_4px_16px_0px_rgba(0,0,0,0.05)]"
-                        style={{ backgroundColor: challenge.bg }}
+                        className="relative overflow-hidden rounded-2xl border border-white shadow-[0px_1px_4px_0px_rgba(0,0,0,0.06),0px_2px_8px_0px_rgba(0,0,0,0.03)]"
+                        style={{ 
+                          backgroundColor: challenge.bg,
+                          padding: '24px',
+                          minHeight: '140px',
+                          display: 'flex',
+                          alignItems: 'flex-start'
+                        }}
                         role="listitem"
                       >
-                        <div
-                          className="absolute bottom-0 right-0 h-5 w-5 rounded-tl-full"
-                          style={{ backgroundColor: `${challenge.accent}33` }}
-                          aria-hidden="true"
-                        />
                         <p
                           className="relative font-sans font-semibold text-base leading-[1.5em] tracking-[-0.01em]"
-                          style={{ color: `${challenge.text}A6` }}
+                          style={{ color: challenge.text }}
                         >
                           {challenge.content}
                         </p>
@@ -245,44 +247,75 @@ export default async function CaseStudyDetailPage({
             className="flex flex-col items-center bg-white py-24 md:py-[190px]"
             aria-labelledby={`section-${sectionIndex}-heading`}
           >
-            <div className="mx-auto flex w-full max-w-[1024px] flex-col gap-10 md:gap-16 px-6">
+            <div className="mx-auto flex w-full max-w-[1024px] flex-col gap-16 px-6">
+              {/* Details Container - max-width 800px, gap 24px */}
               <div className="flex w-full max-w-[800px] flex-col gap-6">
-                <div className="flex flex-col gap-6">
-                  <h2
-                    id={`section-${sectionIndex}-heading`}
-                    className="font-sans font-medium text-black text-3xl md:text-[32px] leading-[1.1em] tracking-[-0.04em]"
-                  >
-                    {section.title}
-                  </h2>
-                  <p className="font-sans font-normal text-[#3F3F46] text-lg md:text-[18px] leading-[1.4em] tracking-[-0.015em]">
-                    {section.description}
-                  </p>
-                </div>
-
-                {section.images && section.images.length > 0 && (
-                  <div
-                    className="grid grid-cols-1 gap-6 md:grid-cols-3"
-                    role="list"
-                    aria-label={`${section.title} design mockups`}
-                  >
-                    {section.images.map((image, imageIndex) => (
-                      <div
-                        key={imageIndex}
-                        className="relative h-[400px] md:h-[600px] w-full overflow-hidden rounded-2xl md:rounded-[22.69px] bg-[#f5f5f7]"
-                        role="listitem"
-                      >
-                        <Image
-                          src={image}
-                          alt={`${section.title} mockup ${imageIndex + 1}`}
-                          fill
-                          className="object-cover"
-                          sizes="(max-width: 768px) 100vw, 33vw"
-                        />
-                      </div>
-                    ))}
-                  </div>
-                )}
+                <h2
+                  id={`section-${sectionIndex}-heading`}
+                  className="font-sans font-medium text-black text-3xl md:text-[32px] leading-[1.1em] tracking-[-0.04em]"
+                >
+                  {section.title}
+                </h2>
+                <p className="font-sans font-normal text-[#3F3F46] text-lg md:text-[18px] leading-[1.4em] tracking-[-0.015em]">
+                  {section.description}
+                </p>
               </div>
+
+              {/* Images Container - 96px gap from details */}
+              {section.images && section.images.length > 0 && (
+                <div
+                  className="flex flex-col gap-6 w-full"
+                  role="list"
+                  aria-label={`${section.title} design mockups`}
+                >
+                  {Array.from({ length: Math.ceil(section.images.length / 3) }).map((_, groupIndex) => {
+                    const startIndex = groupIndex * 3;
+                    const groupImages = section.images.slice(startIndex, startIndex + 3);
+                    
+                    return (
+                      <div
+                        key={groupIndex}
+                        className="rounded-[24px] bg-slate-50/50"
+                        style={{ padding: '40px' }}
+                      >
+                        <div 
+                          className="flex flex-wrap justify-center gap-6 w-full"
+                          style={{ flexWrap: 'wrap' }}
+                        >
+                          {groupImages.map((image, imageIndex) => (
+                            <div
+                              key={startIndex + imageIndex}
+                              className="relative overflow-hidden rounded-[24px] bg-white border border-slate-100 w-full md:w-[calc(33.333%-1rem)]"
+                              style={{ 
+                                padding: '0px'
+                              }}
+                              role="listitem"
+                            >
+                              <div 
+                                className="relative w-full h-full mx-auto"
+                                style={{ 
+                                  aspectRatio: '9/19.5',
+                                  maxWidth: '100%'
+                                }}
+                              >
+                                <Image
+                                  src={image}
+                                  alt={`${section.title} mockup ${startIndex + imageIndex + 1}`}
+                                  fill
+                                  className="object-cover"
+                                  sizes="(max-width: 768px) 100vw, 33vw"
+                                  quality={95}
+                                  priority={startIndex + imageIndex < 3}
+                                />
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
             </div>
           </section>
         ))}

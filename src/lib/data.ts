@@ -3,6 +3,7 @@ export interface ChallengeCard {
   accent: string;
   text: string;
   content: string;
+  folded?: string;
 }
 
 export interface CaseStudyDetail {
@@ -54,28 +55,32 @@ export const caseStudies: CaseStudy[] = [
         "Fitcy bridges the gap between people seeking mental health support and therapists who understand their culture, speak their language, and align with their needs.",
       challenges: [
         {
-          bg: "#E6F1F0",
+          bg: "#E1F0EF",
           accent: "#01655C",
-          text: "#007569",
+          text: "#4A8B86",
           content: "Difficulty Finding the Right Therapist",
+          folded: "#CADEDE",
         },
         {
-          bg: "#F3E0FF",
+          bg: "#F2E1F2",
           accent: "#854ea8",
-          text: "#490079",
+          text: "#8B4A8B",
           content: "Lack of Personalization & Cultural Sensitivity",
+          folded: "#E0CDE0",
         },
         {
-          bg: "#FFEBD0",
+          bg: "#F7EFDB",
           accent: "#ad8349",
-          text: "#814A00",
+          text: "#A67C3B",
           content: "Managing Appointments & Follow-Ups",
+          folded: "#E5DCCD",
         },
         {
-          bg: "#C9F0FF",
+          bg: "#E0F2F7",
           accent: "#4689a3",
-          text: "#005271",
+          text: "#3B8BA6",
           content: "Communication with Therapist at any point",
+          folded: "#CEE0E5",
         },
       ],
       sections: [
@@ -84,9 +89,14 @@ export const caseStudies: CaseStudy[] = [
           description:
             "The manual therapist matching system through a care team member on whatsApp and session management wasn't that user friendly on website",
           images: [
-            "https://placehold.co/800x600/f5f5f7/0f172a.png?text=Therapist+Matching+1",
-            "https://placehold.co/800x600/f5f5f7/0f172a.png?text=Therapist+Matching+2",
-            "https://placehold.co/800x600/f5f5f7/0f172a.png?text=Therapist+Matching+3",
+            "/assets/therapist-matching-1.jpg",
+            "/assets/therapist-matching-2.jpg",
+            "/assets/therapist-matching-3.jpg",
+            "/assets/therapist-matching-4.jpg",
+            "/assets/therapist-matching-5.jpg",
+            "/assets/therapist-matching-6.jpg",
+            "/assets/therapist-matching-7.jpg",
+            "/assets/therapist-matching-8.jpg",
           ],
         },
       ],
