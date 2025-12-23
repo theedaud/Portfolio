@@ -60,35 +60,36 @@ export function Services() {
         {/* Full width container for boxes, responsive sizing */}
         <div className="relative w-full max-w-[962px] h-full left-1/2 -translate-x-1/2">
           {decorativeCards.map((card, index) => (
-          <motion.div
+            <motion.div
               key={index}
               className={cn(
                 "absolute bg-[#F5F5F7] cursor-pointer",
-                "w-[280px] xl:w-[334px] h-[200px] xl:h-[247px] rounded-[13px]",
+                "w-[320px] xl:w-[380px] h-[200px] xl:h-[247px] rounded-[13px]",
                 "border-4 border-white",
                 "shadow-[0_4px_25px_-2px_rgba(0,0,0,0.05)]"
               )}
               initial={{ opacity: 0, y: 60, scale: 0.95 }}
-            whileInView={{
-              opacity: 1,
-              y: 0,
-              scale: 1,
-            }}
-            viewport={{ once: true }}
-            whileHover={{ y: -10 }}
-            transition={{
-              type: "spring",
-              stiffness: 100,
-              damping: 15,
-              duration: 0.4,
+              whileInView={{
+                opacity: 1,
+                y: 0,
+                scale: 1,
+              }}
+              viewport={{ once: true }}
+              whileHover={{ y: -10, zIndex: 10 }}
+              transition={{
+                type: "spring",
+                stiffness: 100,
+                damping: 15,
+                duration: 0.4,
                 delay: card.delay,
-            }}
-            style={{
+              }}
+              style={{
                 left: card.left,
                 top: card.top,
                 rotate: card.rotate,
-            }}
-          />
+                zIndex: card.zIndex,
+              }}
+            />
           ))}
         </div>
       </div>

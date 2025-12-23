@@ -8,15 +8,15 @@ import { useState } from "react";
 
 // Ticker images from assets
 const tickerImages = [
-  "/assets/Ticker_01.jpg",
-  "/assets/Ticker_02.jpg",
-  "/assets/Ticker_03.jpg",
-  "/assets/Ticker_04.jpg",
-  "/assets/Ticker_05.jpg",
-  "/assets/Ticker_06.jpg",
-  "/assets/Ticker_07.jpg",
-  "/assets/Ticker_08.jpg",
-  "/assets/Ticker_09.jpg",
+  "/assets/hero/Ticker_01.jpg",
+  "/assets/hero/Ticker_02.jpg",
+  "/assets/hero/Ticker_03.jpg",
+  "/assets/hero/Ticker_04.jpg",
+  "/assets/hero/Ticker_05.jpg",
+  "/assets/hero/Ticker_06.jpg",
+  "/assets/hero/Ticker_07.jpg",
+  "/assets/hero/Ticker_08.jpg",
+  "/assets/hero/Ticker_09.jpg",
 ];
 
 function HeroMarquee() {

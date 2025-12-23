@@ -11,7 +11,7 @@ export function Header({ className }: { className?: string }) {
         <div className="flex flex-col gap-[6px]">
           <Link href="/" className="flex items-center" aria-label="Go to homepage">
             <Image
-              src="/assets/logo.svg"
+              src="/assets/icons/logo.svg"
               alt="Ahmed Daud"
               width={114}
               height={30}
@@ -38,7 +38,7 @@ export function Header({ className }: { className?: string }) {
         >
           <span>Download Resume</span>
           <Image
-            src="/assets/Download.svg"
+            src="/assets/icons/Download.svg"
             alt=""
             width={18}
             height={18}

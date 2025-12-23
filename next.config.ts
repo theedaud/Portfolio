@@ -10,6 +10,8 @@ const nextConfig: NextConfig = {
     ],
     // Optimize image quality and formats
     formats: ["image/avif", "image/webp"],
+    // Allowed quality values (required in Next.js 16+)
+    qualities: [75, 82, 95, 100],
     // Device sizes for responsive images
     deviceSizes: [640, 750, 828, 1080, 1200, 1920],
     // Image sizes for smaller images
